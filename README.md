@@ -25,6 +25,8 @@ here are the most important shortcuts:
 
  - ```<Alt-arrows>```:   Move the selected line (only up and down arrows works)
 
+ - ```<leader 11>``` : Put the 42 student header
+
 ### LITTLE THINGS TO CHANGE
 
 If you want to change the theme you can see all the themes on here:
