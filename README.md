@@ -1,4 +1,4 @@
-##NVIM CONFIG
+## NVIM CONFIG
 
 ### DOWNLOAD
 
