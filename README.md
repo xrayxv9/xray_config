@@ -30,7 +30,7 @@ here are the most important shortcuts:
 If you want to change the theme you can see all the themes on here:
 ```https://github.com/folke/tokyonight.nvim```
 
-the do the command:
+then do the command:
 ```console
 cd ~/.config/nvim/lua/plugins
 nvim tokyo.lua
