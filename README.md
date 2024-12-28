@@ -27,6 +27,14 @@ here are the most important shortcuts:
 
  - ```<leader 11>``` : Put the 42 student header
 
+ - ```<Ctrl y>``` : auto complete
+
+ - ```<leader c>```: switch from code to tree and from tree to code
+
+ - ```<Ctrl n>``` : in the tree, allows to create a new file
+
+ - ```<Ctrl arrows>``` : make bigger or smaller the tree on the left
+
 ### LITTLE THINGS TO CHANGE
 
 If you want to change the theme you can see all the themes on here:
