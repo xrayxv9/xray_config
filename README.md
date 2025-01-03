@@ -12,7 +12,11 @@ git clone https://github.com/xrayxv9/xray_config ~/.config/nvim
 Before anything, we will refer to space as <leader>, then
 here are the most important shortcuts:
 
- - ```<leader e>```  :   opens the tree
+ - ```<leader-e>```  :   opens the tree
+
+ - ```<leader-c>```  :   switch from tree to code abd from code to tree
+
+ - ```<C-arrows>```  :   increase or decrease the tree size
 
  - ```<leader ff>``` :   opens the telescope
 
@@ -25,15 +29,9 @@ here are the most important shortcuts:
 
  - ```<Alt-arrows>```:   Move the selected line (only up and down arrows works)
 
- - ```<leader 11>``` : Put the 42 student header
+ - ```<leader-11>``` : Put the 42 student header
 
- - ```<Ctrl y>``` : auto complete
-
- - ```<leader c>```: switch from code to tree and from tree to code
-
- - ```<Ctrl n>``` : in the tree, allows to create a new file
-
- - ```<Ctrl arrows>``` : make bigger or smaller the tree on the left
+ - ```<leader-vc>``` : opens a color picker
 
 ### LITTLE THINGS TO CHANGE
 
