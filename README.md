@@ -33,6 +33,11 @@ here are the most important shortcuts:
 
  - ```<leader-vc>``` : opens a color picker
 
+ - ```<Ctrl a>``` : close a window opened in the buffer
+
+ - ```<Ctrl arrow>``` : change the opened file to an other one opened in the buffer
+
+
 ### LITTLE THINGS TO CHANGE
 
 If you want to change the theme you can see all the themes on here:
