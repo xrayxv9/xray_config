@@ -37,6 +37,10 @@ here are the most important shortcuts:
 
  - ```<Ctrl arrow>``` : change the opened file to an other one opened in the buffer
 
+ - ```<Ctrl f>``` : Search through all the files and find the word you are searching for
+
+
+
 
 ### LITTLE THINGS TO CHANGE
 
