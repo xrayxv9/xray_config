@@ -51,6 +51,7 @@ return {
             },
             filters = {
                 dotfiles = false, -- Affiche les fichiers cachés (.git, etc.)
+				custom = { "*.o" },
             },
             git = {
                 enable = true, -- Affiche l'état Git
