@@ -29,5 +29,6 @@
   "toggleterm.nvim": { "branch": "main", "commit": "9a88eae817ef395952e08650b3283726786fb5fb" },
   "tokyonight.nvim": { "branch": "main", "commit": "057ef5d260c1931f1dffd0f052c685dcd14100a3" },
   "undotree": { "branch": "master", "commit": "b951b87b46c34356d44aa71886aecf9dd7f5788a" },
-  "vCoolor.vim": { "branch": "master", "commit": "bc19d684af09b1e146cf72176eea1ecded84882c" }
+  "vCoolor.vim": { "branch": "master", "commit": "bc19d684af09b1e146cf72176eea1ecded84882c" },
+  "vim-visual-multi": { "branch": "master", "commit": "a6975e7c1ee157615bbc80fc25e4392f71c344d4" }
 }
