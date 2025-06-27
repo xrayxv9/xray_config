@@ -9,6 +9,7 @@ vim.opt.shiftwidth = 4
 
 -- put correctly the indents
 vim.opt.smartindent = true
+vim.opt.cindent = true
 
 -- when doing a word search in the file, the searched word won't remain highlighted
 vim.opt.hlsearch = false

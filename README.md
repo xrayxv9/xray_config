@@ -22,9 +22,9 @@ here are the most important shortcuts:
 
  - ```<->```         :   opens the current directory
 
- - ```<C-\> ```      :   opens/close a terminal
+ - ```<C-t> ```      :   opens/close a terminal
 
- - ```<C-/>```       :   in normal mode comments a line
+ - ```<C-\>```       :   in normal mode comments a line
                 in visual mode comments all the selected line
 
  - ```<Alt-arrows>```:   Move the selected line (only up and down arrows works)
@@ -38,6 +38,8 @@ here are the most important shortcuts:
  - ```<Ctrl arrow>``` : change the opened file to an other one opened in the buffer
 
  - ```<Ctrl f>``` : Search through all the files and find the word you are searching for
+
+ - ```<Ctrl-4>``` : Goes to the end of the line even on insert mode
 
 
 
