@@ -22,6 +22,7 @@ require("lazy").setup("plugins", {
 		notify = false;
 	}
 })
+require("xray.theme_picker")
 
 
 vim.api.nvim_create_autocmd('TextYankPost', {
