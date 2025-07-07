@@ -1,25 +1,15 @@
 return {
-    {
-        "akinsho/bufferline.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" }, -- Pour des icônes
-        config = function()
-            -- Setup de bufferline
-            require("bufferline").setup({
-                options = {
-                    show_buffer_icons = true,
-                    separator_style = "slant", -- Séparateurs inclinés
-                    diagnostics = "nvim_lsp", -- Affichage des diagnostics LSP
-                    always_show_bufferline = false, -- Masque la barre quand il n'y a qu'un seul buffer
-                }
-            })
+  "romgrk/barbar.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  init = function() vim.g.barbar_auto_setup = false end,
+  config = function()
+    require("barbar").setup({})
+    -- Affiche automatiquement la tabline seulement s'il y a plus d'un buffer
+    vim.o.showtabline = 1
 
-            -- Mappage pour naviguer entre les buffers avec Ctrl + Flèche droite et gauche
-            vim.api.nvim_set_keymap("n", "<C-Right>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })  -- Aller au buffer suivant
-            vim.api.nvim_set_keymap("n", "<C-Left>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })  -- Aller au buffer précédent
-
-            -- Fermer un buffer avec Ctrl+W sans confirmation et passer au suivant
-            vim.api.nvim_set_keymap("n", "<C-w>", ":bdelete!<CR>:BufferLineCycleNext<CR>", { noremap = true, silent = true })
-        end,
-    },
+    -- Mappings typiques :
+    vim.api.nvim_set_keymap("n", "<C-Right>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<C-Left>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<C-w>", "<Cmd>BufferClose<CR>", { noremap = true, silent = true })
+  end,
 }
-
