@@ -34,3 +34,26 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.o.clipboard = "unnamedplus"
+vim.o.updatetime = 400
+
+vim.diagnostic.config({
+  virtual_text = false,  -- ne pas afficher inline
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    show_header = true,
+    source = "always",
+    border = "rounded",
+    focusable = false,
+  },
+})
+
+-- Affiche le popup d'erreur LSP quand le curseur reste sur une ligne avec erreur
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end
+})
+
