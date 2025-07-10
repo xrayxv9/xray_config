@@ -11,7 +11,8 @@ vim.keymap.set('i', '<C-s>', '<Esc>:wi', { noremap = true, silent = true})
 vim.keymap.set('n', '<C-S>', '<Esc>:w', { noremap = true, silent = true})
 vim.keymap.set('n', '<C-S>', '<Esc>:w', { noremap = true, silent = true})
 
-
 vim.keymap.set('i', '<C-3>', '<Esc>^i', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-3>', '<Esc>^', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-4>', '<Esc>$i', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-4>', '<Esc>$i', { noremap = true, silent = true })
 
