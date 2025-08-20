@@ -65,6 +65,7 @@ return {
             filetypes = { "c", "cpp", "objc", "objcpp", "tpp" },
           }
         end,
+		["tsserver"] = function () end,
       },
     })
 

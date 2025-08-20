@@ -39,6 +39,11 @@ here are the most important shortcuts:
 
  - ```<Ctrl f>``` : Search through all the files and find the word you are searching for
 
+ - ```<leader d>``` : Open the dark themes menu 
+
+ - ```<leader l>``` : Open the light themes menu 
+
+ - ```<leader a>``` : Open the themes menu 
 
 
 

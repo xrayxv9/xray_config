@@ -1,7 +1,7 @@
 local all_themes = {
   "tokyonight-night", "tokyonight-storm", "tokyonight-day", "tokyonight-moon",
   "catppuccin", "catppuccin-macchiato", "catppuccin-mocha", "catppuccin-frappe", "catppuccin-latte",
-  "kanagawa", "kanagawa-wave", "kanagawa-dragon", "kanagawa-lotus",
+  "kanagawa", "kanagawa-dragon", "kanagawa-lotus",
   "flexoki-dark", "flexoki-light",
   "gruvbox", "gruvbox-light",
   "oxocarbon",
@@ -24,12 +24,11 @@ local light_themes = {
 local dark_themes = {
   "tokyonight-night", "tokyonight-storm", "tokyonight-moon",
   "catppuccin", "catppuccin-macchiato", "catppuccin-mocha", "catppuccin-frappe",
-  "kanagawa", "kanagawa-wave", "kanagawa-dragon",
+  "kanagawa", "kanagawa-dragon",
   "flexoki-dark",
   "gruvbox",
   "oxocarbon",
   "moonfly",
-  "cyberdream",
   "onedark_vivid", "onedark_dark", -- variantes sombres onedarkpro
 	"onenord",
 }
