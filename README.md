@@ -46,3 +46,5 @@ here are the most important shortcuts:
  - ```<leader a>``` : Open the themes menu 
 
  - ```<Ctrl b>``` : Shows the current opened files 
+
+ - ```<Ctrl 1>``` : Creates a C main normed with argc, argv (and the 42 header)
