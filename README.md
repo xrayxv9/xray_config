@@ -14,26 +14,26 @@ here are the most important shortcuts:
 
  - ```<leader-e>```  :   opens the tree
 
- - ```<leader-c>```  :   switch from tree to code abd from code to tree
+ - ```<leader-c>```  :   switch from tree to code and from code to tree
 
- - ```<C-arrows>```  :   increase or decrease the tree size
+ - ```<Ctrl-y> / <Enter>```  :   autocompletion
 
- - ```<leader ff>``` :   opens the telescope
+ - ```<leader ff>``` :   shows all the files in the current directory, and shows what's inside
 
  - ```<->```         :   opens the current directory
 
- - ```<C-\> ```      :   opens/close a terminal
+ - ```<C-t> ```      :   opens/close a terminal
 
- - ```<C-/>```       :   in normal mode comments a line
+ - ```<C-\>```       :   in normal mode comments a line
                 in visual mode comments all the selected line
 
- - ```<Alt-arrows>```:   Move the selected line (only up and down arrows works)
+- ```<Alt-arrows>```:   Move the selected line (only up and down arrows works)
 
  - ```<leader-11>``` : Put the 42 student header
 
  - ```<leader-vc>``` : opens a color picker
 
- - ```<Ctrl a>``` : close a window opened in the buffer
+ - ```<Ctrl w>``` : in normal mode close a window opened in the buffer
 
  - ```<Ctrl arrow>``` : change the opened file to an other one opened in the buffer
 
