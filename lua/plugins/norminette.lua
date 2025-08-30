@@ -1,5 +1,5 @@
 return{
-	"hardyrafael17/norminette42.nvim",
+	"xrayxv9/norminette42.nvim",
 	config = function()
 	local norminette = require("norminette")
 	norminette.setup({

@@ -36,18 +36,25 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.o.clipboard = "unnamedplus"
 vim.o.updatetime = 400
 
+
+local norminette_ns = vim.api.nvim_create_namespace("42norme")
 vim.diagnostic.config({
-  virtual_text = false,  -- ne pas afficher inline
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = true,
-  float = {
-    show_header = true,
-    source = "always",
-    border = "rounded",
-    focusable = false,
-  },
+	virtual_text = false,  -- ne pas afficher inline
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = {
+		focusable = true,
+		show_header = true,
+		source = "always",
+		border = "rounded",
+	},
+	signs = {
+		text = {
+		  [vim.diagnostic.severity.ERROR] = "🔴", -- croix violette
+		},
+	},
 })
 
 -- Affiche le popup d'erreur LSP quand le curseur reste sur une ligne avec erreur
