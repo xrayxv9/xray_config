@@ -16,6 +16,3 @@ vim.keymap.set('i', '<C-3>', '<Esc>^i', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-3>', '<Esc>^', { noremap = true, silent = true })
 
 vim.keymap.set({'n', 'v', 'i'}, '<C-1>', '<Esc>:Stdheader<CR>i\n#include <unistd.h>\n\nint	main(int argc, char *argv[])\n{\n(void)argv;\n\tif (argc < 2)\n\t\twrite(1, "please give me an argument\\n", 27);\n\treturn (0);\n}', { noremap = true, silent = true })
-
-
-vim.keymap.set({'n', 'v', 'i'}, '<C-n>', '<Esc>:NorminetteDisable<CR>', { noremap = true, silent = true })
