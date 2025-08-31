@@ -14,6 +14,5 @@ return {
             -- asciiart = { "......", "......",} -- headers with different ascii arts are incompatible with each other
         })
 
-        vim.api.nvim_set_keymap('n', '<leader>11', ':Stdheader<CR>', { noremap = true, silent = true })
     end
 }
