@@ -44,20 +44,24 @@ return {
 					}
 				end,
 				["clangd"] = function()
-					local lsp = require("lspconfig")
-					lsp.clangd.setup {
-						capabilities = capabilities,
-						cmd = {
-							"clangd",
-							"background-index",
-							"-j=12",
-							"--query-driver=/usr/bin/**/clang-*",
-							"--clang-tidy",
-							"--header-insertion-decorators",
-							"--header-insertion=iwyu",
-							"--pch-storage=memory"
-						},
-						filetypes = { "c", "cpp", "objc", "objcpp " },
+					local lspconfig = require("lspconfig")
+					lspconfig.clangd.setup {
+					cmd = {
+						"clangd",
+						"--background-index",
+						"-j=12",
+						"--query-driver=/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
+						"--clang-tidy",
+						"--clang-tidy-checks=*",
+						"--all-scopes-completion",
+						"--cross-file-rename",
+						"--completion-style=detailed",
+						"--header-insertion-decorators",
+						"--header-insertion=iwyu",
+						"--pch-storage=memory",
+					},
+					capabilities = capabilities,
+					filetypes = { "c", "cpp", "objc", "objcpp", "tpp" },
 					}
 				end,
 			},
