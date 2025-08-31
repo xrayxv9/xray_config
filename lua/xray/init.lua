@@ -100,15 +100,21 @@ end
 
 vim.g.norminette_active = read_norminette_state()
 
+if vim.g.norminette_active then
+		vim.cmd(":NorminetteEnable")
+else
+		vim.cmd(":NorminetteDisable")
+end
+
 vim.keymap.set("n", "<C-n>", function()
   vim.g.norminette_active = not vim.g.norminette_active
   write_norminette_state(vim.g.norminette_active)
   if vim.g.norminette_active then
 		vim.cmd(":NorminetteEnable")
-    print("Norminette activée")
+		print("Norminette activée")
   else
 		vim.cmd(":NorminetteDisable")
-    print("Norminette désactivée")
+		print("Norminette désactivée")
   end
 end, { desc = "Toggle norminette42.nvim" })
 
