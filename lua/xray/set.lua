@@ -29,3 +29,5 @@ vim.opt.scrolloff = math.floor(vim.o.lines * 0.35)
 vim.opt.guicursor = "n-v-c:block-blinkwait700-blinkoff400-blinkon250,i:ver25-blinkwait700-blinkoff400-blinkon250"
 
 vim.o.clipboard = "unnamedplus"
+
+vim.opt.mouse = "a"

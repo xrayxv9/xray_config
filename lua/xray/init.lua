@@ -23,6 +23,7 @@ require("lazy").setup("plugins", {
 	}
 })
 require("xray.theme_picker")
+require("xray.help_page")
 
 
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -38,21 +39,8 @@ vim.o.updatetime = 400
 
 
 local signs = {
-  [vim.diagnostic.severity.ERROR] = "🔴",
-  [vim.diagnostic.severity.WARN]  = "🟠",
-  [vim.diagnostic.severity.INFO]  = "🔵",
-  [vim.diagnostic.severity.HINT]  = "🟢",
 }
 
-for severity, icon in pairs(signs) do
-  local name = ({
-    [vim.diagnostic.severity.ERROR] = "Error",
-    [vim.diagnostic.severity.WARN]  = "Warn",
-    [vim.diagnostic.severity.INFO]  = "Info",
-    [vim.diagnostic.severity.HINT]  = "Hint",
-  })[severity]
-  vim.fn.sign_define("DiagnosticSign" .. name, { text = icon, texthl = "DiagnosticSign" .. name, numhl = "" })
-end
 
 
 vim.diagnostic.config({
@@ -67,7 +55,14 @@ vim.diagnostic.config({
 		source = "always",
 		border = "rounded",
 	},
-	signs = true,
+	signs = {
+		text ={
+			  [vim.diagnostic.severity.ERROR] = "🔴",
+			  [vim.diagnostic.severity.WARN]  = "🟠",
+			  [vim.diagnostic.severity.INFO]  = "🔵",
+			  [vim.diagnostic.severity.HINT]  = "🟢",
+		},
+	},
 })
 
 -- Affiche le popup d'erreur LSP quand le curseur reste sur une ligne avec erreur
@@ -101,9 +96,9 @@ end
 vim.g.norminette_active = read_norminette_state()
 
 if vim.g.norminette_active then
-		vim.cmd(":NorminetteEnable")
+	vim.cmd(":NorminetteEnable")
 else
-		vim.cmd(":NorminetteDisable")
+	vim.cmd(":NorminetteDisable")
 end
 
 vim.keymap.set("n", "<C-n>", function()
@@ -114,7 +109,7 @@ vim.keymap.set("n", "<C-n>", function()
 		print("Norminette activée")
   else
 		vim.cmd(":NorminetteDisable")
-		print("Norminette désactivée")
+    print("Norminette désactivée")
   end
 end, { desc = "Toggle norminette42.nvim" })
 
