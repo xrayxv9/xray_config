@@ -255,7 +255,7 @@ end
 
 vim.api.nvim_create_user_command("ShortcutsPalette", show_category_picker, {})
 
-vim.g.layout = vim.fn.system("setxkbmap -query | grep layout | awk '{print $2}' | cut -d',' -f1")
+vim.g.layout = vim.fn.system("setxkbmap -query | grep layout | awk '{print $2}' | cut -d',' -f2")
 vim.g.layout = vim.trim(vim.g.layout)
 
 if vim.g.layout == "us" then

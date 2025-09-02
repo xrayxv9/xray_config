@@ -38,14 +38,8 @@ vim.o.clipboard = "unnamedplus"
 vim.o.updatetime = 400
 
 
-local signs = {
-}
-
-
-
 vim.diagnostic.config({
 	virtual_text = false,  -- ne pas afficher inline
-	signs = true,
 	underline = true,
 	update_in_insert = false,
 	severity_sort = true,

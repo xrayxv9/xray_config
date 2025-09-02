@@ -6,7 +6,7 @@ vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Q', 'q!', {})
 vim.api.nvim_create_user_command('X', 'x', {})
 
-vim.g.layout = vim.fn.system("setxkbmap -query | grep layout | awk '{print $2}' | cut -d',' -f1")
+vim.g.layout = vim.fn.system("setxkbmap -query | grep layout | awk '{print $2}' | cut -d',' -f2")
 vim.g.layout = vim.trim(vim.g.layout)
 
 if vim.g.layout == "us" then
