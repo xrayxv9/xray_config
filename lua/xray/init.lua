@@ -13,6 +13,23 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 
+vim.lsp.config("lua_ls",{
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" }
+			},
+			workspace = {
+				library = {
+					[vim.fn.expand("~/.config/nvim/nvim-api")] = true,
+				},
+				checkThirdParty = false,
+			}
+		}
+	}
+})
+
+
 vim.opt.rtp:prepend(lazypath)
 
 require("xray.remap")
