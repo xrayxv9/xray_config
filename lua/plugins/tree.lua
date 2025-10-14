@@ -86,30 +86,6 @@ return {
         -- Toggle l'explorateur de fichiers
         vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
 
-        -- Fonction pour switcher le focus entre NvimTree et le code
-        local function toggle_focus()
-            if api.tree.is_visible() then
-                local curwin = vim.api.nvim_get_current_win()
-                local tree_win = nil
-                for _, win in ipairs(vim.api.nvim_list_wins()) do
-                    local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(win))
-                    if bufname:match("NvimTree_") then
-                        tree_win = win
-                        break
-                    end
-                end
-                if tree_win and curwin == tree_win then
-                    vim.cmd("wincmd l")
-                elseif tree_win then
-                    vim.api.nvim_set_current_win(tree_win)
-                else
-                    api.tree.focus()
-                end
-            end
-        end
-
-        vim.keymap.set("n", "<leader>c", toggle_focus, { desc = "Switch entre NvimTree et code" })
-
         -- Ferme NvimTree si c'est la dernière fenêtre ouverte
         vim.api.nvim_create_autocmd("BufEnter", {
             nested = true,

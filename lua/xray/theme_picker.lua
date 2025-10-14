@@ -1,4 +1,8 @@
 local all_themes = {
+	"poimandres",
+	"bamboo",
+	"vague",
+	"melange",
   "tokyonight-night", "tokyonight-storm", "tokyonight-day", "tokyonight-moon",
   "catppuccin", "catppuccin-macchiato", "catppuccin-mocha", "catppuccin-frappe", "catppuccin-latte",
   "kanagawa", "kanagawa-dragon", "kanagawa-lotus",
@@ -22,6 +26,10 @@ local light_themes = {
 }
 
 local dark_themes = {
+	"poimandres",
+	"bamboo",
+	"vague",
+	"melange",
   "tokyonight-night", "tokyonight-storm", "tokyonight-moon",
   "catppuccin", "catppuccin-macchiato", "catppuccin-mocha", "catppuccin-frappe",
   "kanagawa", "kanagawa-dragon",
