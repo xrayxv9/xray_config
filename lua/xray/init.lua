@@ -34,10 +34,13 @@ vim.opt.rtp:prepend(lazypath)
 
 require("xray.remap")
 require("xray.set")
-require("lazy").setup("plugins", {
-	change_detection = {
-		notify = false;
-	}
+require("lazy").setup({
+    { import = "plugins" },
+    { import = "plugins.themes" },
+}, {
+    change_detection = {
+        notify = false,
+    },
 })
 require("xray.theme_picker")
 require("xray.help_page")
