@@ -47,7 +47,7 @@ here are the most important shortcuts:
 
  - ```<Ctrl b>``` : Shows the current opened files 
 
- - ```<Ctrl 1>``` : Creates a C main normed with argc, argv (and the 42 header)
+ - ```<Ctrl m>``` : Creates a C main normed with argc, argv (and the 42 header)
 
- - ```<Ctrl 0>``` : Shows the help for all the shortcuts
+ - ```<Ctrl h>``` : Shows the help for all the shortcuts
 
