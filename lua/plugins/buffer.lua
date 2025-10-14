@@ -1,11 +1,10 @@
 return {
   "romgrk/barbar.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  init = function() vim.g.barbar_auto_setup = false end,
+  init = function() vim.g.barbar_auto_setup = true end,
   config = function()
     require("barbar").setup({})
     -- Affiche automatiquement la tabline seulement s'il y a plus d'un buffer
-    vim.o.showtabline = 1
 
     -- Mappings typiques :
     vim.api.nvim_set_keymap("n", "<C-Right>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
