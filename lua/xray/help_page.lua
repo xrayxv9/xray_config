@@ -255,11 +255,4 @@ end
 
 vim.api.nvim_create_user_command("ShortcutsPalette", show_category_picker, {})
 
-vim.g.layout = vim.fn.system("setxkbmap -query | grep layout | awk '{print $2}' | cut -d',' -f2")
-vim.g.layout = vim.trim(vim.g.layout)
-
-if vim.g.layout == "us" then
-	vim.keymap.set("n", "<C-8>", ":ShortcutsPalette<CR>", { desc = "Shortcuts (leader = space)" })
-else
-	vim.keymap.set("n", "<C-_>", ":ShortcutsPalette<CR>", { desc = "Shortcuts (leader = space)" })	
-end
+vim.keymap.set("n", "<C-h>", ":ShortcutsPalette<CR>", { desc = "Shortcuts (leader = space)" })

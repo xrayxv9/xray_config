@@ -33,8 +33,8 @@ vim.lsp.config("lua_ls",{
 vim.opt.rtp:prepend(lazypath)
 
 require("xray.remap")
+require("xray.easy_keybind_change")
 -- require("xray.easy_remap").save_datas()
-vim.g.keybinds = require("xray.easy_remap").read_datas()
 require("xray.set")
 require("lazy").setup({
     { import = "plugins" },
@@ -117,7 +117,7 @@ else
 	vim.cmd(":NorminetteDisable")
 end
 
-vim.keymap.set("n", vim.g.keybinds.fourty_two.norminette_enable, function()
+vim.keymap.set("n", _G.keybinds.fourty_two.norminette_enable, function()
   vim.g.norminette_active = not vim.g.norminette_active
   write_norminette_state(vim.g.norminette_active)
   if vim.g.norminette_active then
