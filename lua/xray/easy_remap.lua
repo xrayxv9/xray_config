@@ -83,9 +83,10 @@ json_file.read_datas = function ()
 		local encoded_result = file:read("a")
 		local content = json.decode(encoded_result)
 		file:close()
-		return content
+		return content, encoded_result
 	else
-		return false
+		json_file.save_datas()
+		return json_file.read_datas()
 	end
 end
 
