@@ -163,9 +163,9 @@ vim.api.nvim_create_user_command("ThemePicker", function() pick_theme(all_themes
 vim.api.nvim_create_user_command("ThemePickerLight", function() pick_theme(light_themes, "Thèmes lumineux") end, {})
 vim.api.nvim_create_user_command("ThemePickerDark", function() pick_theme(dark_themes, "Thèmes sombres") end, {})
 
-vim.keymap.set("n", "<leader>a", ":ThemePicker<CR>", { desc = "Menu de sélection de thème" })
-vim.keymap.set("n", "<leader>l", ":ThemePickerLight<CR>", { desc = "Thèmes lumineux" })
-vim.keymap.set("n", "<leader>d", ":ThemePickerDark<CR>", { desc = "Thèmes sombres" })
+vim.keymap.set("n", vim.g.keybinds.color_scheme.all, ":ThemePicker<CR>", { desc = "Menu de sélection de thème" })
+vim.keymap.set("n", vim.g.keybinds.color_scheme.light, ":ThemePickerLight<CR>", { desc = "Thèmes lumineux" })
+vim.keymap.set("n", vim.g.keybinds.color_scheme.dark, ":ThemePickerDark<CR>", { desc = "Thèmes sombres" })
 
 -- Recharge le dernier thème choisi APRES que LazyVim ait chargé les plugins
 vim.api.nvim_create_autocmd("User", {
