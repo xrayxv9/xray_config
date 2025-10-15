@@ -78,10 +78,10 @@ return {
 				end,
 			},
 			mapping = {
-				[vim.g.keybinds.lsp.move_up] = cmp.mapping.select_prev_item(cmp_select),
-				[vim.g.keybinds.lsp.move_bot] = cmp.mapping.select_next_item(cmp_select),
-				[vim.g.keybinds.lsp.confirm] = cmp.mapping.confirm({ select = true }),
-				[vim.g.keybinds.lsp.secondary_confirm] = cmp.mapping.confirm({ select = true }),
+				[_G.keybinds.lsp.move_up] = cmp.mapping.select_prev_item(cmp_select),
+				[_G.keybinds.lsp.move_bot] = cmp.mapping.select_next_item(cmp_select),
+				[_G.keybinds.lsp.confirm] = cmp.mapping.confirm({ select = true }),
+				[_G.keybinds.lsp.secondary_confirm] = cmp.mapping.confirm({ select = true }),
 			},
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },

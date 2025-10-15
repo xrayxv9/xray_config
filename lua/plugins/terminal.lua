@@ -3,7 +3,7 @@ return {
     config = function()
         require("toggleterm").setup({
             size = 20,
-            open_mapping = [[vim.g.keybinds.terminal.pop_up]], -- Terminal flottant
+            open_mapping = [[_G.keybinds.terminal.pop_up]], -- Terminal flottant
             direction = "float",
         })
 
@@ -14,7 +14,7 @@ return {
         })
 
         -- Keymap pour ouvrir/fermer le terminal "bottom" avec <C-o>
-        vim.api.nvim_set_keymap("n", vim.g.keybinds.terminal.vs_terminal, "<cmd>lua require('toggleterm.terminal').Terminal:new({direction='horizontal'}):toggle()<CR>", { noremap = true, silent = true })
+        vim.api.nvim_set_keymap("n", _G.keybinds.terminal.vs_terminal, "<cmd>lua require('toggleterm.terminal').Terminal:new({direction='horizontal'}):toggle()<CR>", { noremap = true, silent = true })
 
 		vim.api.nvim_create_user_command("VsTerminal", function()
 		  require('toggleterm.terminal').Terminal:new({direction='horizontal'}):toggle()
