@@ -1,3 +1,4 @@
 theme.txt
 lazy-lock.json
 lazyvim.json
+lua/plugins/lsp.lua
