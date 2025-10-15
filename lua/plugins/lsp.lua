@@ -77,13 +77,13 @@ return {
 					require("luasnip").lsp_expand(args.body)
 				end,
 			},
-			mapping = cmp.mapping.preset.insert({
-				["<c-p>"] = cmp.mapping.select_prev_item(cmp_select),
-				["<c-n>"] = cmp.mapping.select_next_item(cmp_select),
+			mapping = {
+				["<c-Up>"] = cmp.mapping.select_prev_item(cmp_select),
+				["<c-Down>"] = cmp.mapping.select_next_item(cmp_select),
 				["<c-y>"] = cmp.mapping.confirm({ select = true }),
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
 				["c-space"] = cmp.mapping.confirm(),
-			}),
+			},
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },

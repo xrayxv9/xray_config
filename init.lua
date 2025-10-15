@@ -5,9 +5,10 @@ vim.api.nvim_create_user_command('Wq', 'wq', {})
 vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Q', 'q!', {})
 vim.api.nvim_create_user_command('X', 'x', {})
-
 vim.g.layout = vim.fn.system("setxkbmap -query | grep layout | awk '{print $2}' | cut -d',' -f2")
 vim.g.layout = vim.trim(vim.g.layout)
+
+vim.keymap.set('n', '<CR>', 'i')
 
 if vim.g.layout == "us" then
 	-- permet de se deplacer rapidement dans une ligne
