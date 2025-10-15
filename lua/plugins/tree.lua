@@ -56,23 +56,21 @@ return {
             end
 
             -- Ouvre/crée un fichier ou dossier
-            vim.keymap.set("n", "<C-n>", api.fs.create, opts("Create"))
-            -- Change la racine de l'arbre
-            vim.keymap.set("n", "<C-CR>", api.tree.change_root_to_node, opts("Change Root to Node"))
+            vim.keymap.set("n", vim.g.keybinds.tree.create_file, api.fs.create, opts("Create"))
             -- Ouvre le fichier/dossier sélectionné
-            vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
+            vim.keymap.set("n", vim.g.keybinds.tree.confirm, api.node.open.edit, opts("Open"))
             vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Open with mouse"))
             -- Renomme le fichier/dossier sélectionné
-            vim.keymap.set("n", "r", api.fs.rename, opts("Rename"))
+            vim.keymap.set("n", vim.g.keybinds.tree.rename_file, api.fs.rename, opts("Rename"))
             -- Soft delete à la place de la suppression réelle
-            vim.keymap.set("n", "d", function()
+            vim.keymap.set("n", vim.g.keybinds.tree.delete_file, function()
                 local node = api.tree.get_node_under_cursor()
                 if node and node.absolute_path then
                     soft_delete(node)
                 end
             end, opts("Soft Delete (déplaçable/cancelable tant que Neovim n'est pas quitté)"))
             -- Restaure les fichiers soft deleted (undo général)
-            vim.keymap.set("n", "u", restore_soft_deleted, opts("Undo all soft deleted"))
+            vim.keymap.set("n", vim.g.keybinds.tree.undo, restore_soft_deleted, opts("Undo all soft deleted"))
         end
 
         require("nvim-tree").setup({
@@ -84,7 +82,7 @@ return {
         })
 
         -- Toggle l'explorateur de fichiers
-        vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
+        vim.keymap.set("n", vim.g.keybinds.tree.ouvrir_fermer, "<cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
 
         -- Ferme NvimTree si c'est la dernière fenêtre ouverte
         vim.api.nvim_create_autocmd("BufEnter", {

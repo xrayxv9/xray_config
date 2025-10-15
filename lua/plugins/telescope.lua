@@ -4,7 +4,7 @@ return {
     local builtin = require('telescope.builtin')
 
     -- Clés de raccourcis existantes
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+    vim.keymap.set('n', vim.g.keybinds.telescope.see_files, builtin.find_files, {})
 
     -- Configuration de Telescope avec ripgrep pour la recherche
     require('telescope').setup{
@@ -20,6 +20,6 @@ return {
     }
 
     -- Lier le raccourci Ctrl+f à la fonction live_grep avec Telescope
-    vim.keymap.set('n', '<C-f>', '<cmd>Telescope live_grep<CR>', { noremap = true, silent = true })
+    vim.keymap.set('n', vim.g.keybinds.telescope.ctrl_f, '<cmd>Telescope live_grep<CR>', { noremap = true, silent = true })
   end
 }
