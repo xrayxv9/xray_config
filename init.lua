@@ -8,6 +8,12 @@ vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Q', 'q!', {})
 vim.api.nvim_create_user_command('X', 'x', {})
 
+vim.api.nvim_create_autocmd("QuitPre", {
+	callback = function()
+		vim.cmd("NvimTreeClose")
+	end
+})
+
 vim.keymap.set('n', '<CR>', 'i');
 -- permet de se deplacer rapidement dans une ligne
 vim.keymap.set('i', '<C-4>', '<Esc>$i', { noremap = true, silent = true })

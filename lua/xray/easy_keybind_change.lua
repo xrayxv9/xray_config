@@ -20,6 +20,9 @@ end
 
 
 local function check_doubles(command)
+	if #command < 1 then
+		return nil
+	end
 	for index, _ in pairs(_G.keybinds) do
 		for index2, _ in pairs(_G.keybinds[index]) do
 			if _G.keybinds[index][index2] == command then
@@ -57,6 +60,8 @@ local function change_mapping(cat)
 				local result = check_doubles(val)
 				if result == nil then
 					vim.notify("There is a double, you can check here : ~/.local/share/nvim/keybinds.json")
+					val = _G.keybinds[cat][selection[1]]
+					change_datas()
 				else
 					_G.keybinds[cat][selection[1]] = val
 					change_datas()
@@ -98,4 +103,4 @@ show_cathegories = function ()
 end
 
 vim.api.nvim_create_user_command("Keybinds", show_cathegories, {})
-vim.keymap.set("n", "<c-.>", ":Keybinds<cr>", { desc = "shortcuts (leader = space)" })
+vim.keymap.set("n", "<c-=>", ":Keybinds<cr>", { desc = "shortcuts (leader = space)" })
