@@ -14,7 +14,38 @@ return {
 			on_attach = function(buf)
 				local api = require('nvim-tree.api')
 				api.config.mappings.default_on_attach(buf)
- 
+
+				local function create_folder(full_name)
+					vim.fn.mkdir(full_name, "p")
+				end
+
+				local function create_file()
+					local file = api.tree.get_node_under_cursor()
+					local path = vim.fn.fnamemodify(file.absolute_path, ":h")
+					local value = vim.fn.input(file.type .. "  : ")
+					local full_name
+					if file.type == "directory" then
+						full_name = file.absolute_path .. "/" .. value
+					else
+						full_name = path .. "/" .. value
+					end
+
+					if value:sub(-1) == '/' then
+						create_folder(full_name)
+						return false
+					end
+					if vim.fn.filereadable(full_name) or vim.fn.isdirectory(full_name) then
+						local new_file = io.open(full_name, "w")
+						if new_file then
+							new_file:close()
+						else
+							print("Error while creating the file !")
+						end
+					else
+						print("This name is already in use")
+					end
+				end
+
 				local function delete_modify()
 					local file = api.tree.get_node_under_cursor()
 					local result = vim.fn.input("Do you really want to remove this file ? (y/n): ")
@@ -37,7 +68,8 @@ return {
 				end
 				vim.keymap.set('n', _G.keybinds.tree.delete_file, delete_modify, { buffer = buf })
 				vim.keymap.set('n', _G.keybinds.tree.undo, undo_delete, { buffer = buf })
-				vim.keymap.set('n', '<leader>c', function ()
+				vim.keymap.set('n', _G.keybinds.tree.create_file, create_file, { buffer = buf })
+				vim.keymap.set('n', _G.keybinds.tree.switch_tabs, function ()
 					if api.tree.is_visible() then
 						for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
 							if vim.api.nvim_get_current_buf() == buffer then
