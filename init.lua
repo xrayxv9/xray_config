@@ -9,9 +9,14 @@ vim.api.nvim_create_user_command('Q', 'q!', {})
 vim.api.nvim_create_user_command('X', 'x', {})
 
 vim.api.nvim_create_autocmd("QuitPre", {
-	callback = function()
+	callback = function ()
+		for _, files in pairs(Deleted_files) do
+			if vim.fn.filereadable(files) or vim.fn.isdirectory(files) then
+				vim.fn.delete(files .. ".deleted", "rf")
+			end
+		end
 		vim.cmd("NvimTreeClose")
-	end
+	end,
 })
 
 vim.keymap.set('n', '<CR>', 'i');
@@ -34,5 +39,5 @@ vim.keymap.set('n', '<C-S>', '<Esc>:w<CR>', { noremap = true, silent = true})
 vim.keymap.set('n', '<C-S>', '<Esc>:w<CR>', { noremap = true, silent = true})
 
 
-vim.keymap.set("n", _G.keybinds.tree.switch_tabs, toggle_focus, { desc = "Switch entre NvimTree et code" })
+-- vim.keymap.set("n", _G.keybinds.tree.switch_tabs, toggle_focus, { desc = "Switch entre NvimTree et code" })
 
