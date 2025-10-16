@@ -15,6 +15,7 @@ vim.keymap.set('n', '<C-4>', '<Esc>$', { noremap = true, silent = true })
 vim.keymap.set('i', '<C-6>', '<Esc>^i', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-6>', '<Esc>^', { noremap = true, silent = true })
 
+
 -- creer un main a la norme en C
 vim.keymap.set({'n', 'v', 'i'}, _G.keybinds.fourty_two.main, '<Esc>:Stdheader<CR>i\n#include <unistd.h>\n\nint	main(int argc, char *argv[])\n{\n(void)argv;\n\tif (argc < 2)\n\t\twrite(1, "please give me an argument\\n", 27);\n\treturn (0);\n}', { noremap = true, silent = true })
 
