@@ -31,32 +31,3 @@ vim.opt.guicursor = "n-v-c:block-blinkwait700-blinkoff400-blinkon250,i:ver25-bli
 vim.o.clipboard = "unnamedplus"
 
 vim.opt.mouse = "a"
-
-_G.toggle_focus = function()
-  local api = require("nvim-tree.api")
-  if api.tree.is_visible() then
-    local curwin = vim.api.nvim_get_current_win()
-    local tree_win = nil
-    for _, win in ipairs(vim.api.nvim_list_wins()) do
-      local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(win))
-      if bufname:match("NvimTree_") then
-        tree_win = win
-        break
-      end
-    end
-    if tree_win and curwin == tree_win then
-      vim.cmd("wincmd l")
-    elseif tree_win then
-      vim.api.nvim_set_current_win(tree_win)
-    else
-      api.tree.focus()
-    end
-  end
-end
-
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		vim.cmd("NvimTreeToggle")
-		_G.toggle_focus()
-	end
-})
