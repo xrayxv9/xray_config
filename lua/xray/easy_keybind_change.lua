@@ -53,7 +53,7 @@ local function change_mapping(cat)
 		attach_mappings = function (_, _)
 			actions.select_default:replace(function (prompt)
 				local selection = actions_state.get_selected_entry()
-				local val =vim.fn.input("Enter new shortcut (Control = <C>, leader = ' ' max 2 touches)\n")
+				local val =vim.fn.input("Enter new shortcut (Control = <C>, leader = ' ' max 2 touches)")
 				local result = check_doubles(val)
 				if result == nil then
 					vim.notify("There is a double, you can check here : ~/.local/share/nvim/keybinds.json")

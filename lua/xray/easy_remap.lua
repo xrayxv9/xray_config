@@ -63,9 +63,6 @@ json_file.save_datas = function ()
 				create_file = 'n',
 				confirm = '<CR>'
 			},
-			undo_tree = {
-				ouvrir_fermer = '<leader>u',
-			},
 		}
 		local encoded_contents = json.encode(content)
 		file:write(encoded_contents)
