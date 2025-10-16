@@ -53,8 +53,6 @@ _G.toggle_focus = function()
     end
   end
 end
-vim.keymap.set("n", "<leader>c", toggle_focus, { desc = "Switch entre NvimTree et code" })
-
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()

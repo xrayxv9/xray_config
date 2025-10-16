@@ -40,11 +40,12 @@ local dark_themes = {
   "onedark_vivid", "onedark_dark", -- variantes sombres onedarkpro
 	"onenord",
 }
+local HOME = os.getenv("HOME")
+local PATH = HOME .. "/.local/share/nvim/theme.txt"
 
 local function set_theme(colorscheme)
   vim.cmd.colorscheme(colorscheme)
-  local config = vim.fn.stdpath("config") .. "/theme.txt"
-  local file = io.open(config, "w")
+  local file = io.open(PATH, "w")
   if file then
     file:write(colorscheme)
     file:close()
@@ -100,8 +101,7 @@ vim.keymap.set("n", "<leader>d", ":ThemePickerDark<CR>", { desc = "Thèmes sombr
 vim.api.nvim_create_autocmd("User", {
   pattern = "LazyVimStarted",
   callback = function()
-    local config = vim.fn.stdpath("config") .. "/theme.txt"
-    local file = io.open(config, "r")
+    local file = io.open(PATH, "r")
     if file then
       local theme = file:read("*l")
       if theme then
@@ -114,8 +114,7 @@ vim.api.nvim_create_autocmd("User", {
 
 local function set_theme(colorscheme)
   vim.cmd.colorscheme(colorscheme)
-  local config = vim.fn.stdpath("config") .. "/theme.txt"
-  local file = io.open(config, "w")
+  local file = io.open(PATH, "w")
   if file then
     file:write(colorscheme)
     file:close()
@@ -163,16 +162,15 @@ vim.api.nvim_create_user_command("ThemePicker", function() pick_theme(all_themes
 vim.api.nvim_create_user_command("ThemePickerLight", function() pick_theme(light_themes, "Thèmes lumineux") end, {})
 vim.api.nvim_create_user_command("ThemePickerDark", function() pick_theme(dark_themes, "Thèmes sombres") end, {})
 
-vim.keymap.set("n", "<leader>a", ":ThemePicker<CR>", { desc = "Menu de sélection de thème" })
-vim.keymap.set("n", "<leader>l", ":ThemePickerLight<CR>", { desc = "Thèmes lumineux" })
-vim.keymap.set("n", "<leader>d", ":ThemePickerDark<CR>", { desc = "Thèmes sombres" })
+vim.keymap.set("n", _G.keybinds.color_scheme.all, ":ThemePicker<CR>", { desc = "Menu de sélection de thème" })
+vim.keymap.set("n", _G.keybinds.color_scheme.light, ":ThemePickerLight<CR>", { desc = "Thèmes lumineux" })
+vim.keymap.set("n", _G.keybinds.color_scheme.dark, ":ThemePickerDark<CR>", { desc = "Thèmes sombres" })
 
 -- Recharge le dernier thème choisi APRES que LazyVim ait chargé les plugins
 vim.api.nvim_create_autocmd("User", {
   pattern = "LazyVimStarted",
   callback = function()
-    local config = vim.fn.stdpath("config") .. "/theme.txt"
-    local file = io.open(config, "r")
+    local file = io.open(PATH, "r")
     if file then
       local theme = file:read("*l")
       if theme then

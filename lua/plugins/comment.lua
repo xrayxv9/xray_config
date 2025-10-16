@@ -5,11 +5,7 @@ return {
         require('Comment').setup()
 
         -- Remapping pour commenter une ligne en mode normal
-		vim.keymap.set('n', '<C-\\>', '<CMD>lua require("Comment.api").toggle.linewise.current()<CR>', { desc = 'Toggle comment for current line' })
-        vim.keymap.set('i', '<C-\\>', '<CMD>lua require("Comment.api").toggle.linewise.current()<CR>', { desc = 'Toggle comment for current line' })
-
-        -- Remapping pour commenter une sélection en mode visuel
-        vim.keymap.set('v', '<C-\\>', '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', { desc = 'Toggle comment for selected block' })
+		vim.keymap.set({ 'n', 'v', 'i' }, _G.keybinds.comment.comment, '<CMD>lua require("Comment.api").toggle.linewise.current()<CR>', { desc = 'Toggle comment for current line' })
     end
 }
 
