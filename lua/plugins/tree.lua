@@ -11,6 +11,15 @@ return {
 		vim.keymap.set("n", _G.keybinds.tree.ouvrir_fermer, "<cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
 
         require("nvim-tree").setup({
+			renderer = {
+				indent_markers = {
+					enable = true,
+					icons = {
+						corner = "╰",
+					}
+				}
+			},
+
 			on_attach = function(buf)
 				local api = require('nvim-tree.api')
 				api.config.mappings.default_on_attach(buf)
@@ -22,7 +31,7 @@ return {
 				local function create_file()
 					local file = api.tree.get_node_under_cursor()
 					local path = vim.fn.fnamemodify(file.absolute_path, ":h")
-					local value = vim.fn.input(file.type .. "  : ")
+					local value = vim.fn.input("File name : ")
 					local full_name
 					if file.type == "directory" then
 						full_name = file.absolute_path .. "/" .. value
@@ -73,8 +82,11 @@ return {
 					if api.tree.is_visible() then
 						for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
 							if vim.api.nvim_get_current_buf() == buffer then
-								vim.cmd("wincmd p")
-								return true
+								local name = vim.api.nvim_buf_get_name(buffer)
+								if name:match("NvimTree")then
+									vim.cmd("wincmd p")
+									return true
+								end
 							end
 						end
 						vim.cmd("NvimTreeFocus")
@@ -82,8 +94,7 @@ return {
 				end)
 			end,
             view = { side = "left", width = 30 },
-            renderer = { group_empty = true },
-            filters = { dotfiles = false, custom = { "*.o", "*.meta"} },
+                  filters = { dotfiles = false, custom = { "*.o", "*.meta"} },
             git = { enable = true },
         })
     end,
