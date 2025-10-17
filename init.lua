@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("QuitPre", {
 	end,
 })
 
-vim.keymap.set('n', '<CR>', 'i');
+vim.keymap.set('n', '<CR>', 'i', { noremap = true, silent = true });
 -- permet de se deplacer rapidement dans une ligne
 vim.keymap.set('i', '<C-4>', '<Esc>$i', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-4>', '<Esc>$', { noremap = true, silent = true })

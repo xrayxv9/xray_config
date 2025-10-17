@@ -72,11 +72,6 @@ return {
 		require("luasnip.loaders.from_vscode").lazy_load()
 
 		cmp.setup({
-			snippet = {
-				expand = function(args)
-					require("luasnip").lsp_expand(args.body)
-				end,
-			},
 			mapping = {
 				[_G.keybinds.lsp.move_up] = cmp.mapping.select_prev_item(cmp_select),
 				[_G.keybinds.lsp.move_bot] = cmp.mapping.select_next_item(cmp_select),

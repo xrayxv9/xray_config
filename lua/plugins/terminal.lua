@@ -3,7 +3,7 @@ return {
     config = function()
         require("toggleterm").setup({
             size = 20,
-            open_mapping = [[_G.keybinds.terminal.pop_up]], -- Terminal flottant
+            open_mapping = [[<C-t>]], -- Terminal flottant
             direction = "float",
         })
 
