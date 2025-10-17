@@ -38,7 +38,7 @@ json_file.save_datas = function ()
 				move_line_up_visual = '<A-Up>',
 				move_line_down_visual = '<A-Down>',
 				move_line_up_normal = '<A-Up>',
-				move_line_down_normal = '<A-Downp>',
+				move_line_down_normal = '<A-Down>',
 			},
 			oil = {
 				quit = 'q',
