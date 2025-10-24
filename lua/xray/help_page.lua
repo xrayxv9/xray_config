@@ -155,6 +155,13 @@ local my_shortcuts = {
 		action = nil
 	},
 	{
+		category = "other",
+		name = "change keybinds",
+		key = "leader .",
+		desc = "change any of your keybinds yourself",
+		action = nil
+	},
+	{
 		category = "42",
 		name = "main",
 		key = _G.keybinds.fourty_two.main,
@@ -255,4 +262,4 @@ end
 
 vim.api.nvim_create_user_command("ShortcutsPalette", show_category_picker, {})
 
-vim.keymap.set("n", "<C-h>", ":ShortcutsPalette<CR>", { desc = "Shortcuts (leader = space)" })
+vim.keymap.set("n", "<leader>h", ":ShortcutsPalette<CR>", { desc = "Shortcuts (leader = space)" })

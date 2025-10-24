@@ -103,4 +103,4 @@ show_cathegories = function ()
 end
 
 vim.api.nvim_create_user_command("Keybinds", show_cathegories, {})
-vim.keymap.set("n", "<c-=>", ":Keybinds<cr>", { desc = "shortcuts (leader = space)" })
+vim.keymap.set("n", "<leader>.", ":Keybinds<cr>", { desc = "shortcuts (leader = space)" })

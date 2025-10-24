@@ -28,7 +28,7 @@ vim.keymap.set('n', '<C-6>', '<Esc>^', { noremap = true, silent = true })
 
 
 -- creer un main a la norme en C
-vim.keymap.set({'n', 'v', 'i'}, _G.keybinds.fourty_two.main, '<Esc>:Stdheader<CR>i\n#include <unistd.h>\n\nint	main(int argc, char *argv[])\n{\n(void)argv;\n\tif (argc < 2)\n\t\twrite(1, "please give me an argument\\n", 27);\n\treturn (0);\n}', { noremap = true, silent = true })
+vim.keymap.set('n', _G.keybinds.fourty_two.main, '<Esc>:Stdheader<CR>i\n#include <unistd.h>\n\nint	main(int argc, char *argv[])\n{\n(void)argv;\n\tif (argc < 2)\n\t\twrite(1, "please give me an argument\\n", 27);\n\treturn (0);\n}', { noremap = true, silent = true })
 
 -- permet de mettre le header 42
 vim.api.nvim_set_keymap('n', _G.keybinds.fourty_two.header, ':Stdheader<CR>', { noremap = true, silent = true })
