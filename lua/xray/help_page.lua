@@ -30,8 +30,16 @@ local my_shortcuts = {
 	},
 	{
 		category = "Tree",
+		name = "Confirm",
+		key = _G.keybinds.tree.confirm,
+		desc = "Confirm the current selection",
+	    action = nil,
+	},
+
+	{
+		category = "Tree",
 		name = "Safe remove",
-		key = _G.keybinds.delete_file,
+		key = _G.keybinds.tree.delete_file,
 		desc = "Removes a file on the Tree",
 		action = nil,
 	},
@@ -108,14 +116,14 @@ local my_shortcuts = {
 	{
 		category = "Opened File",
 		name = "Change file Right",
-		key = _G.keybinds.buffer_file.right,
+		key = _G.keybinds.buffer_file.move_right,
 		desc = "switch to the right file",
 		action = nil
 	},
 	{
 		category = "Opened File",
 		name = "Change file Left",
-		key = _G.keybinds.buffer_file.right,
+		key = _G.keybinds.buffer_file.move_left,
 		desc = "switch to the left file",
 		action = nil
 	},
@@ -201,12 +209,15 @@ local function show_shortcuts_picker_for_category(category)
     finder = finders.new_table {
       results = shortcuts,
       entry_maker = function(entry)
+				if (entry.key) == nil then
+					print (entry.name)
+				end
         return {
           value = entry,
           display = function(item)
             return string.format("%-18s", item.value.name)
           end,
-          ordinal = entry.name .. " " .. entry.key .. " " .. entry.desc,
+			ordinal = entry.name .. " " .. entry.key .. " " .. entry.desc,
         }
       end
     },
