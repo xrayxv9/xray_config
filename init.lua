@@ -38,6 +38,11 @@ vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>i', { noremap = true, silent = true})
 vim.keymap.set('n', '<C-S>', '<Esc>:w<CR>', { noremap = true, silent = true})
 vim.keymap.set('n', '<C-S>', '<Esc>:w<CR>', { noremap = true, silent = true})
 
+vim.api.nvim_create_autocmd('VimEnter', {
+	callback = function ()
+		vim.cmd("NvimTreeToggle")
+		vim.cmd("SwitchTabs")
+	end
+})
 
--- vim.keymap.set("n", _G.keybinds.tree.switch_tabs, toggle_focus, { desc = "Switch entre NvimTree et code" })
 
