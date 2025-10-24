@@ -129,3 +129,4 @@ vim.keymap.set("n", _G.keybinds.fourty_two.norminette_enable, function()
   end
 end, { desc = "Toggle norminette42.nvim" })
 
+

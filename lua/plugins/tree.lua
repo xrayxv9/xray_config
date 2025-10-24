@@ -4,11 +4,11 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
     config = function()
-        -- local api = require("nvim-tree.api")
 		Deleted_files = {}
 		Opened = false
-            -- vim.keymap.set("n", _G.keybinds.tree.create_file, api.fs.create, opts("Create"))
+
 		vim.keymap.set("n", _G.keybinds.tree.ouvrir_fermer, "<cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
+		local api = require('nvim-tree.api')
 
         require("nvim-tree").setup({
 			renderer = {
@@ -18,10 +18,8 @@ return {
 						corner = "╰",
 					}
 				}
-			},
-
+			},	
 			on_attach = function(buf)
-				local api = require('nvim-tree.api')
 				api.config.mappings.default_on_attach(buf)
 
 				local function create_folder(full_name)
@@ -78,24 +76,27 @@ return {
 				vim.keymap.set('n', _G.keybinds.tree.delete_file, delete_modify, { buffer = buf })
 				vim.keymap.set('n', _G.keybinds.tree.undo, undo_delete, { buffer = buf })
 				vim.keymap.set('n', _G.keybinds.tree.create_file, create_file, { buffer = buf })
-				vim.keymap.set('n', _G.keybinds.tree.switch_tabs, function ()
-					if api.tree.is_visible() then
-						for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
-							if vim.api.nvim_get_current_buf() == buffer then
-								local name = vim.api.nvim_buf_get_name(buffer)
-								if name:match("NvimTree")then
-									vim.cmd("wincmd p")
-									return true
-								end
-							end
-						end
-						vim.cmd("NvimTreeFocus")
-					end
-				end)
 			end,
             view = { side = "left", width = 30 },
                   filters = { dotfiles = false, custom = { "*.o", "*.meta"} },
             git = { enable = true },
         })
+		vim.api.nvim_create_user_command("SwitchTabs", function ()
+			print(api.tree.is_visible())
+				if api.tree.is_visible() then
+					for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
+						if vim.api.nvim_get_current_buf() == buffer then
+							local name = vim.api.nvim_buf_get_name(buffer)
+							if name:match("NvimTree")then
+								vim.cmd("wincmd p")
+								return
+							end
+						end
+					end
+				vim.cmd("NvimTreeFocus")
+			end
+		end, {})
+		vim.keymap.set('n', _G.keybinds.tree.switch_tabs, "<cmd>SwitchTabs<CR>")
     end,
 }
+
