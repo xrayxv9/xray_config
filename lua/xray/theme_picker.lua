@@ -1,5 +1,6 @@
 local all_themes = {
 	"poimandres",
+	"killer-queen",
 	"bamboo",
 	"vague",
 	"melange",
@@ -27,6 +28,7 @@ local light_themes = {
 
 local dark_themes = {
 	"poimandres",
+	"killer-queen",
 	"bamboo",
 	"vague",
 	"melange",

@@ -29,6 +29,18 @@ vim.lsp.config("lua_ls",{
 	}
 })
 
+vim.lsp.config("asm_lsp", {
+	init_options = {
+		dialect = "nasm", -- ou "intel" si tu veux
+		diagnostics = true,
+	},
+	settings = {
+		asm_lsp = {
+			diagnostics = true,
+		}
+	}
+})
+
 
 vim.opt.rtp:prepend(lazypath)
 
