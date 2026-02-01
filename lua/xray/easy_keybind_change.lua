@@ -33,7 +33,6 @@ local function check_doubles(command)
 	return true
 end
 
-
 local function change_mapping(cat)
 	local picker = require('telescope.pickers')
 	local finder = require('telescope.finders')
