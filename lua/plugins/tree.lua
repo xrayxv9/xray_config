@@ -55,13 +55,8 @@ return {
 
 				local function delete_modify()
 					local file = api.tree.get_node_under_cursor()
-					local result = vim.fn.input("Do you really want to remove this file ? (y/n): ")
-					if result == 'y' or result == 'Y' then
-						table.insert(Deleted_files, file.absolute_path)
-						os.rename(file.absolute_path, file.absolute_path .. ".deleted")
-					else
-						return false
-					end
+					table.insert(Deleted_files, file.absolute_path)
+					os.rename(file.absolute_path, file.absolute_path .. ".deleted")
 				end
 
 				local function undo_delete()
