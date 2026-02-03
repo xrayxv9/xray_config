@@ -77,7 +77,6 @@ return {
             git = { enable = true },
         })
 		vim.api.nvim_create_user_command("SwitchTabs", function ()
-			print(api.tree.is_visible())
 				if api.tree.is_visible() then
 					for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
 						if vim.api.nvim_get_current_buf() == buffer then
