@@ -14,7 +14,6 @@ if name then
 	name:close()
 end
 
-print(vim.g.tmp)
 vim.api.nvim_create_autocmd("QuitPre", {
 	callback = function ()
 		for _, files in pairs(Deleted_files) do
@@ -34,11 +33,5 @@ vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>i<right>', { noremap = true, silent = t
 vim.keymap.set('n', '<C-S>', '<Esc>:w<CR>', { noremap = true, silent = true})
 vim.keymap.set('n', '<C-S>', '<Esc>:w<CR>', { noremap = true, silent = true})
 
-vim.api.nvim_create_autocmd('VimEnter', {
-	callback = function ()
-		vim.cmd("NvimTreeToggle")
-		vim.cmd("SwitchTabs")
-	end
-})
-
-
+vim.keymap.set('i', '<C-Del>', '<Esc>dwi<right>', { noremap = true, silent = true})
+vim.keymap.set('n', '<C-Del>', 'dw', { noremap = true, silent = true})
